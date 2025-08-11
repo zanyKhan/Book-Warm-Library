@@ -28,6 +28,7 @@ book_library/ # Main project folder
 ├── templates/ # HTML templates for pages
 ├── .gitignore # Files/folders to ignore in Git
 ├── manage.py # Django management script
+```
 
 ## ⚙️ Installation
 
