@@ -1,0 +1,40 @@
+{% extends "navbar.html" %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .gallery-title {
+            text-align: center;
+            margin: 20px 0 20px;
+            color: #d33535;
+        }
+        .gallery-card {
+            border: none;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-card:hover {
+            transform: scale(1.03);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+    </style>
+
+<div class="container">
+    <h1 class="gallery-title">Library Gallery</h1>
+    <div class="row">
+        {% for img in images %}
+        <div class="col-md-4 mb-4">
+            <div class="card gallery-card">
+                <img src="{% static img.path %}" alt="{{img.alt}}" class="gallery-img">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

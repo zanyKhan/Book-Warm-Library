@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    height: 75px;
+    background-color: rgb(15, 11, 3);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left {
+    display: flex;
+    align-items: center;      /* ✅ Vertical center align */
+    gap: 15px;                /* Space between logo and dropdown */
+    height: 75px;
+    margin-left: 20px;
+}
+
+.left img {
+    height: 60px;             /* Reduced height for better alignment */
+    width: auto;
+    object-fit: contain;
+}
+
+.dropdown .btn {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin: 0;
+    line-height: 1;
+}
+
+.dropdown .btn:hover {
+    background-color: #29231a;
+    color: white;
+}
+
+ul{
+    list-style: none;
+    cursor: pointer;
+}
+
+.middle ul{
+    display: flex;
+}
+.middle ul li{
+    padding: 0 10px;
+}
+.middle ul li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.right ul{
+    display: flex;
+}
+.right ul li{
+    padding: 0 5px;
+    margin-right: 20px;
+}
+.right ul li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.main h1{
+    color: #2C2C2C;
+    margin-top: 7%;
+    margin-left: 2%;
+}
+.main p {
+    color: #2e2a32;        /* Slightly lighter for body text */
+    font-size: 1.2rem;
+    margin-left: 2%;
+}
+
+button.primary{
+    background-color: #752b44;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+button.secondary {
+  background-color: transparent;
+  color: #752b44;
+  border: 2px solid #752b44;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 2%;
+}
+
+/* 👇 FORCE 18px font size in navbar elements */
+nav,
+nav * {
+    font-size: 18px !important;
+}
+
+.navbar {
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar-collapse {
+    background-color: rgb(15, 11, 3);  /* same as your navbar background */
+}
+
+.navbar-collapse .nav-link {
+    color: white !important;
+}
+
+

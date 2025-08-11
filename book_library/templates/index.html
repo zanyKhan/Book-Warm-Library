@@ -1,0 +1,32 @@
+{% extends "navbar.html" %}
+{% load static %}
+
+{% block title %}Book Warm Library{% endblock title %}
+
+{% block extra_style %}
+    <style>
+        body{
+            background-image: url("{% static 'images/background2.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center -150px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid"> 
+        <div class="main">
+            <h1>Discover Worlds Between the Pages</h1>
+            <p>Explore thousands of books across genres — your<br> journey to knowledge and imagination begins here.</p>
+
+            {% if request.session.username %}
+                <a href="/catelog/"><button class="primary">Explore Now</button></a>               
+            {% else %}
+                <a href="/loginform/"><button class="primary">Explore Now</button></a>
+            {% endif %}
+            
+            <a href="/about/"><button class="secondary">About Our Library</button></a>
+        </div>
+    </div>
+{% endblock content %}

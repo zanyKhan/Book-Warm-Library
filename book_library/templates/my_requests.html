@@ -1,0 +1,39 @@
+{% extends "navbar.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">📚 My Book Requests</h2>
+
+    {% if requests_list %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Requested On</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for req in requests_list %}
+                <tr>
+                    <td>{{ req.book.title }}</td>
+                    <td>{{ req.request_date}}</td>
+                    <td>
+                        {% if req.status == 'P' %}
+                            <span class="badge bg-warning text-dark">Pending</span>
+                        {% elif req.status == 'A' %}
+                            <span class="badge bg-success">Approved</span>
+                        {% elif req.status == 'R' %}
+                            <span class="badge bg-danger">Rejected</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">You have not requested any books yet.</div>
+    {% endif %}
+</div>
+{% endblock %}

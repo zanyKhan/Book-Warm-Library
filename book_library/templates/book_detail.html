@@ -1,0 +1,51 @@
+{% extends "navbar.html" %}
+{% load static %}
+
+{% block title %}Book Detail{% endblock title %}
+
+{% block content %}
+
+    <div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{book.img.url}}" class="img-fluid shadow-lg" alt="{{ book.title }}"
+      style="height: 480px; width: 100%; object-fit: cover; object-position: center; border-radius: 4px;">
+    </div>
+    <div class="col-md-8">
+      <h2>📖{{ book.title }}</h2>
+      <p class="text-muted">by <b>{{ book.author }}</b></p>
+      <p><strong>Price : </strong> ${{ book.price }} 
+         <span class="text-muted text-decoration-line-through">${{ book.original_price }}</span></p>
+      <p><strong>ISBN : </strong> {{ book.isbn_num }}</p>
+      <p><strong>Publisher : </strong> {{ book.publisher }}</p>
+      <p><strong>Category : </strong> {{ book.category }}</p>
+      {% if book.is_available %}
+        <p style="color:green"><strong  style="color:black !important">Availability : </strong>Instantly Available</p>
+      {% else %}
+        <p  style="color:red"><strong style="color:black !important">Availability : </strong>Currently Unvailable</p>
+      {% endif %}
+      
+      <p><strong>Description : </strong>{{ book.desc }}</p>
+
+      
+      <div class="d-flex mt-auto gap-3">
+          <a href="{% url "catelog" %}" class="btn btn-outline-primary mt-3">Back to Library</a>
+          {% if request.session.role == 'U' %}
+              {% if book.is_available %}
+                <a href="{% url 'request_book' book.id %}" class="btn btn-outline-success mt-3">Assign to me</a>
+              {% else %}
+                <a href="{% url 'request_book' book.id %}" class="btn btn-outline-success mt-3 disabled">Assign to me</a>
+              {% endif %}
+          {% endif %}
+      </div>
+      {% if request.session.role == 'A' %} 
+        <div class="d-flex mt-auto gap-3">
+          <a href="{% url 'delete_book' book.id %}" class="btn btn-sm btn-outline-danger mt-3">Delete</a>
+          <a href="{% url 'update_form' book.id %}" class="btn btn-sm btn-outline-success mt-3">Update</a>
+        </div>
+      {% endif %} 
+    </div>
+  </div>
+</div>
+{% endblock content %}
+

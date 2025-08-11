@@ -1,0 +1,31 @@
+{% extends "navbar.html" %}
+
+{% block title %}Contact - Book Warm Library{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Contacts</h2>
+    {% if contacts %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.username }}</td>
+                    <td>{{ contact.subject}}</td>
+                    <td>{{contact.message}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">There is no Contacts</div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block extra_style %}
+    <style>
+    body {
+        background-color: #f8f1e4;  /* soft beige background */
+    }
+
+    .contact-container {
+        background: #fffefb;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+        border: 2px solid transparent;
+        position: relative;
+    }
+
+    .contact-container::before {
+        content: "";
+        position: absolute;
+        top: -2px; left: -2px;
+        right: -2px; bottom: -2px;
+        z-index: -1;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #ff0055, #ff9966, #8c52ff);
+    }
+
+    .contact-title {
+        font-family: 'Georgia', serif;
+        color: #4d2c1d;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-label {
+        color: #5a4332;
+        font-weight: 500;
+    }
+
+    .form-control {
+        border: 1px solid #e3c9ad;
+        background-color: #fffdf8;
+        color: #3d2b1f;
+    }
+
+    .form-control::placeholder {
+        color: #c2a793;
+    }
+
+    .form-control:focus {
+        border-color: #ff9f80;
+        box-shadow: 0 0 0 0.2rem rgba(255, 159, 128, 0.25);
+    }
+
+    .input-group-text {
+        background-color: #fff1e6;
+        color: #ff3366;
+        border: none;
+    }
+
+    .form-icon {
+        color: #ff3366;
+    }
+
+    .btn-custom {
+        background: linear-gradient(135deg, #ff8fa3, #ffb677, #c08bff);
+        color: white;
+        font-weight: 600;
+        border: none;
+        padding: 10px 26px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 143, 163, 0.3);
+    }
+
+    .btn-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(255, 143, 163, 0.45);
+    }
+</style>
+{% endblock extra_style %}
+
+{% block content %}
+{% include "alerts.html" %}
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="contact-container">
+                <h2 class="contact-title">
+                    <i class="fas fa-envelope-open-text me-2"></i>Contact Our Library
+                </h2>
+
+                <form method="POST" action="{% url 'contact_us' %}">
+                    {% csrf_token %}
+                        {% if error %}
+                            <p style="color: red; margin-left: 12%;">{{ error }}</p>
+                        {% endif %}
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user form-icon"></i></span>
+                            <input type="text" class="form-control" id="name" name="username" placeholder="e.g. Zainab Hussain" >
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope form-icon"></i></span>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" >
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-book-open form-icon"></i></span>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of your message">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-comment-dots form-icon"></i></span>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message here..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-custom">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
