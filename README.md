@@ -8,7 +8,7 @@ It also provides an admin interface for managing books, approving/rejecting requ
 ## 🚀 Features
 
 - **User Registration & Login**
-- **Book Browsing & Searching**
+- **Book Browsing**
 - **Book Request System**
 - **Admin Approval / Rejection**
 - **Track Borrowed & Returned Books**
@@ -19,6 +19,7 @@ It also provides an admin interface for managing books, approving/rejecting requ
 
 ## 📂 Project Structure
 
+```
 book_library/ # Main project folder
 │
 ├── book_app/ # Django app containing models, views, and URLs
