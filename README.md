@@ -36,29 +36,32 @@ book_library/ # Main project folder
    ```bash
    git clone https://github.com/zanyKhan/Book-Warm-Library.git
    cd Book-Warm-Library
+   cd book_library
 
 2. **Create and activate a virtual environment**
+   ```bash
     python -m venv env
     source env/bin/activate     # On Linux/Mac
     env\Scripts\activate        # On Windows
 
-3. **Install dependencies**
+4. **Install dependencies**
+   ```bash
     pip install -r requirements.txt
 
-4. **Run database migrations**
+6. **Run database migrations**
+   ```bash
     python manage.py makemigrations
     python manage.py migrate
 
-5. **Start the development server**
+8. **Start the development server**
+   ```bash
     python manage.py runserver
 
 **🛠️ Usage**
+
     Visit http://127.0.0.1:8000/ in your browser.
-    
     Register a new user or log in.
-    
     Browse books, send requests, and track your borrowed books.
-    
     Login as admin to approve/reject book requests.
 
 ## 👩‍💻 Author
