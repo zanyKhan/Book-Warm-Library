@@ -59,10 +59,10 @@ book_library/ # Main project folder
 
 **🛠️ Usage**
 
-    Visit http://127.0.0.1:8000/ in your browser.
-    Register a new user or log in.
-    Browse books, send requests, and track your borrowed books.
-    Login as admin to approve/reject book requests.
+   - Visit http://127.0.0.1:8000/ in your browser.
+   - Register a new user or log in.
+   - Browse books, send requests, and track your borrowed books.
+   - Login as admin to approve/reject book requests.
 
 ## 👩‍💻 Author
 
